@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
-import { MetricData } from '../../data/mockData';
+import type { MetricData } from '../../data/mockData';
 
 interface MetricCardProps {
   metric: MetricData;
