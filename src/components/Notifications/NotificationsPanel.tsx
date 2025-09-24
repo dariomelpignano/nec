@@ -150,7 +150,7 @@ const NotificationsPanel: React.FC<NotificationsPanelProps> = ({ isOpen, onClose
 
   return (
     <div
-      className="fixed right-96 top-16 w-96 h-[calc(100vh-4rem)] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 border-l border-white/10 shadow-2xl z-50"
+      className="fixed lg:right-96 right-0 top-0 lg:top-16 w-full sm:w-96 h-full lg:h-[calc(100vh-4rem)] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 border-l border-white/10 shadow-2xl z-50"
       style={{ animation: 'slideInLeft 0.3s ease-out' }}
     >
       <style>{`

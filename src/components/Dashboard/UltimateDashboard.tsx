@@ -17,6 +17,8 @@ const UltimateDashboard: React.FC = () => {
   const [showConfig, setShowConfig] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileChatOpen, setIsMobileChatOpen] = useState(false);
   const [realTimeData, setRealTimeData] = useState({
     efficiency: 92.5,
     documents: 1847,
@@ -205,23 +207,42 @@ const UltimateDashboard: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
       <header className="bg-black/20 backdrop-blur-xl border-b border-white/10 relative z-50">
-        <div className="px-6 py-4 mr-96"> {/* Add right margin to account for chat panel */}
+        <div className="px-4 sm:px-6 py-4 lg:mr-96"> {/* Responsive padding and margin */}
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl">
-                <Layers className="h-8 w-8 text-white" />
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 text-gray-300 hover:text-white transition bg-black/20 rounded-lg"
+              >
+                <Menu className="h-5 w-5" />
+              </button>
+
+              <div className="p-1.5 sm:p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl">
+                <Layers className="h-6 sm:h-8 w-6 sm:w-8 text-white" />
               </div>
-              <div>
-                <h1 className="text-2xl font-bold text-white">Neosperience Enterprise Cloud</h1>
-                <p className="text-sm text-blue-200">Piattaforma AI per la Trasformazione Digitale delle PMI</p>
+              <div className="hidden sm:block">
+                <h1 className="text-lg sm:text-2xl font-bold text-white">Neosperience Enterprise Cloud</h1>
+                <p className="text-xs sm:text-sm text-blue-200 hidden md:block">Piattaforma AI per la Trasformazione Digitale delle PMI</p>
+              </div>
+              <div className="sm:hidden">
+                <h1 className="text-base font-bold text-white">NEC</h1>
               </div>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 px-4 py-2 bg-green-500/20 rounded-xl border border-green-500/30">
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              <div className="hidden md:flex items-center space-x-2 px-4 py-2 bg-green-500/20 rounded-xl border border-green-500/30">
                 <div className="h-2 w-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="text-sm text-green-300 font-medium">Sistema Operativo</span>
               </div>
+
+              {/* Mobile chat toggle */}
+              <button
+                onClick={() => setIsMobileChatOpen(!isMobileChatOpen)}
+                className="lg:hidden p-2 text-gray-300 hover:text-white transition bg-black/20 rounded-lg"
+              >
+                <MessageSquare className="h-5 w-5" />
+              </button>
 
               <button
                 onClick={() => setShowNotifications(!showNotifications)}
@@ -233,7 +254,7 @@ const UltimateDashboard: React.FC = () => {
 
               <button
                 onClick={() => setShowConfig(true)}
-                className="relative p-2 text-gray-300 hover:text-white transition bg-black/20 rounded-lg"
+                className="hidden sm:block relative p-2 text-gray-300 hover:text-white transition bg-black/20 rounded-lg"
               >
                 <Settings className="h-5 w-5" />
               </button>
@@ -242,11 +263,11 @@ const UltimateDashboard: React.FC = () => {
         </div>
       </header>
 
-      <div className="flex">
+      <div className="flex relative">
         {/* Main Content */}
-        <div className="flex-1 p-6 transition-all mr-96">
+        <div className="flex-1 p-4 sm:p-6 transition-all lg:mr-96">
           {/* Metrics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
             {metrics.map((metric, index) => {
               const Icon = metric.icon;
               return (
@@ -289,17 +310,17 @@ const UltimateDashboard: React.FC = () => {
             })}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
             {/* Performance Chart */}
-            <div className="lg:col-span-2 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 p-6">
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center justify-between">
+            <div className="lg:col-span-2 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 p-4 sm:p-6">
+              <h2 className="text-base sm:text-xl font-bold text-white mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <span className="flex items-center">
-                  <BarChart3 className="mr-3 h-6 w-6 text-blue-400" />
-                  Performance KPI in Tempo Reale
+                  <BarChart3 className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6 text-blue-400" />
+                  <span className="text-sm sm:text-base">Performance KPI</span>
                 </span>
                 <span className="text-xs text-gray-400">Aggiornamento: 3 sec</span>
               </h2>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={performanceData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                   <XAxis dataKey="time" stroke="#9ca3af" fontSize={12} />
@@ -459,8 +480,8 @@ const UltimateDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* User Profile Section */}
-        <div className="fixed right-0 top-0 w-96 h-20 bg-black/60 backdrop-blur-xl border-l border-b border-white/10 z-50">
+        {/* User Profile Section - Desktop Only */}
+        <div className="hidden lg:block fixed right-0 top-0 w-96 h-20 bg-black/60 backdrop-blur-xl border-l border-b border-white/10 z-50">
           <div className="flex items-center justify-between h-full px-4">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full">
@@ -481,10 +502,30 @@ const UltimateDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Chat Sidebar - Always Visible */}
-        <div className="fixed right-0 top-20 h-[calc(100vh-5rem)] w-96 bg-black/40 backdrop-blur-xl border-l border-white/10">
+        {/* Chat Sidebar - Desktop Always Visible */}
+        <div className="hidden lg:block fixed right-0 top-20 h-[calc(100vh-5rem)] w-96 bg-black/40 backdrop-blur-xl border-l border-white/10">
           <AIAssistant />
         </div>
+
+        {/* Mobile Chat Overlay */}
+        {isMobileChatOpen && (
+          <div className="lg:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm">
+            <div className="fixed right-0 top-0 h-full w-full sm:w-96 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 border-l border-white/10">
+              <div className="flex items-center justify-between p-4 border-b border-white/10">
+                <h3 className="text-lg font-semibold text-white">AI Assistant</h3>
+                <button
+                  onClick={() => setIsMobileChatOpen(false)}
+                  className="p-2 hover:bg-white/10 rounded-lg transition"
+                >
+                  <X className="h-5 w-5 text-gray-400" />
+                </button>
+              </div>
+              <div className="h-[calc(100%-4rem)]">
+                <AIAssistant />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Configuration Pane */}

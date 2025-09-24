@@ -166,17 +166,17 @@ const ConfigurationPane: React.FC<ConfigurationPaneProps> = ({ isOpen, onClose }
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
 
       {/* Modal */}
-      <div className="relative w-full max-w-4xl max-h-[80vh] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl border border-white/20 shadow-2xl overflow-hidden animate-slide-up">
+      <div className="relative w-[95%] sm:w-full max-w-4xl h-[90vh] sm:max-h-[80vh] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl border border-white/20 shadow-2xl overflow-hidden animate-slide-up">
         {/* Header */}
-        <div className="bg-black/40 backdrop-blur-xl border-b border-white/10 p-6">
+        <div className="bg-black/40 backdrop-blur-xl border-b border-white/10 p-4 sm:p-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl">
-                <Settings className="h-6 w-6 text-white" />
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="p-1.5 sm:p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl">
+                <Settings className="h-5 sm:h-6 w-5 sm:w-6 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white">Configurazione Sistema</h2>
-                <p className="text-sm text-gray-400">Gestione connessioni MCP e integrazioni</p>
+                <h2 className="text-lg sm:text-xl font-bold text-white">Configurazione Sistema</h2>
+                <p className="text-xs sm:text-sm text-gray-400 hidden sm:block">Gestione connessioni MCP e integrazioni</p>
               </div>
             </div>
             <button
