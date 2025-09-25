@@ -223,7 +223,7 @@ const UltimateDashboard: React.FC = () => {
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-lg sm:text-2xl font-bold text-white">Neosperience Enterprise Cloud</h1>
-                <p className="text-xs sm:text-sm text-blue-200 hidden md:block">Piattaforma AI per la Trasformazione Digitale delle PMI</p>
+                <p className="text-xs sm:text-sm text-blue-200 hidden md:block">La Data Fabric per il Digital Enablement della Tua Impresa</p>
               </div>
               <div className="sm:hidden">
                 <h1 className="text-base font-bold text-white">NEC</h1>

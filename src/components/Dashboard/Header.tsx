@@ -11,7 +11,7 @@ const Header: React.FC = () => {
               <Activity className="h-10 w-10 mr-3" />
               <div>
                 <h1 className="text-2xl font-bold">Neosperience Enterprise Cloud</h1>
-                <p className="text-sm text-blue-100">Piattaforma AI per la Trasformazione Digitale delle PMI</p>
+                <p className="text-sm text-blue-100">La Data Fabric per il Digital Enablement della Tua Impresa</p>
               </div>
             </div>
           </div>
