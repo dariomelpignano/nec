@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import UltimateDashboard from './components/Dashboard/UltimateDashboard'
 import ESGDashboard from './components/ESG/ESGDashboard'
-<<<<<<< HEAD
-=======
-// import { getIndustryFromURL, IndustryType } from './config/industries'
->>>>>>> ad7e7afbbf545d34771af300a79ff54e434ed3a8
+import RBMDashboard from './components/RBM/RBMDashboard'
 
 function App() {
   const [industry, setIndustry] = useState('manufacturing')
@@ -13,8 +10,11 @@ function App() {
     const checkIndustry = () => {
       const urlParams = new URLSearchParams(window.location.search)
       const industryParam = urlParams.get('industry')
+
       if (industryParam === 'esg') {
         setIndustry('esg')
+      } else if (industryParam === 'rbm') {
+        setIndustry('rbm')
       } else {
         setIndustry('manufacturing')
       }
@@ -31,14 +31,12 @@ function App() {
   switch (industry) {
     case 'esg':
       return <ESGDashboard />
+    case 'rbm':
+      return <RBMDashboard />
     case 'manufacturing':
     default:
       return <UltimateDashboard />
   }
 }
 
-<<<<<<< HEAD
 export default App
-=======
-export default App
->>>>>>> ad7e7afbbf545d34771af300a79ff54e434ed3a8
