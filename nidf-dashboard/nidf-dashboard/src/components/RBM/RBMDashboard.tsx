@@ -25,8 +25,16 @@ import {
 } from 'lucide-react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
 
+// Import RBM specific modules
+import RBMKnowledgeHub from './modules/RBMKnowledgeHub';
+import RBMDeclaro from './modules/RBMDeclaro';
+import RBMAutomate from './modules/RBMAutomate';
+import RBMPulse from './modules/RBMPulse';
+import RBMVirtualAssistant from './modules/RBMVirtualAssistant';
+
 const RBMDashboard: React.FC = () => {
   const [selectedArea, setSelectedArea] = useState<string>('overview');
+  const [selectedModule, setSelectedModule] = useState<string>('knowledge');
   const [animatingCards, setAnimatingCards] = useState<Set<string>>(new Set());
 
   // Simulated real-time data updates
@@ -271,6 +279,17 @@ const RBMDashboard: React.FC = () => {
                 >
                   <Layers className="h-4 w-4 mr-3" />
                   Panoramica
+                </button>
+                <button
+                  onClick={() => setSelectedArea('modules')}
+                  className={`w-full flex items-center px-3 py-2 rounded-lg transition ${
+                    selectedArea === 'modules'
+                      ? 'bg-purple-50 text-purple-700 font-medium'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <Brain className="h-4 w-4 mr-3" />
+                  Moduli AI
                 </button>
                 {departmentAreas.map(area => {
                   const Icon = area.icon;
@@ -530,26 +549,83 @@ const RBMDashboard: React.FC = () => {
             </div>
           )}
 
+          {/* Modules View */}
+          {selectedArea === 'modules' && (
+            <div className="space-y-6">
+              {/* Module Navigation */}
+              <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="flex items-center space-x-2 overflow-x-auto">
+                  {[
+                    { id: 'knowledge', label: 'RBM-GPT Knowledge Hub', icon: Brain },
+                    { id: 'declaro', label: 'Declaro Configuratore', icon: Settings },
+                    { id: 'automate', label: 'Automate Documenti', icon: FileText },
+                    { id: 'pulse', label: 'Pulse Digital Twin', icon: Activity },
+                    { id: 'assistant', label: 'Virtual Assistant ICT', icon: Monitor }
+                  ].map(module => {
+                    const Icon = module.icon;
+                    return (
+                      <button
+                        key={module.id}
+                        onClick={() => setSelectedModule(module.id)}
+                        className={`flex items-center px-4 py-2 rounded-lg whitespace-nowrap transition ${
+                          selectedModule === module.id
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        <Icon className="h-4 w-4 mr-2" />
+                        {module.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Module Content */}
+              {selectedModule === 'knowledge' && <RBMKnowledgeHub />}
+              {selectedModule === 'declaro' && <RBMDeclaro />}
+              {selectedModule === 'automate' && <RBMAutomate />}
+              {selectedModule === 'pulse' && <RBMPulse />}
+              {selectedModule === 'assistant' && <RBMVirtualAssistant />}
+            </div>
+          )}
+
           {/* Department-specific views */}
-          {selectedArea !== 'overview' && (
-            <div className="bg-white rounded-xl p-8 shadow-sm">
-              <div className="flex items-center mb-6">
-                {departmentAreas.find(d => d.id === selectedArea) && (
-                  <>
-                    {React.createElement(
-                      departmentAreas.find(d => d.id === selectedArea)!.icon,
-                      { className: "h-8 w-8 text-blue-600 mr-3" }
-                    )}
-                    <h2 className="text-2xl font-bold text-gray-900">
-                      {departmentAreas.find(d => d.id === selectedArea)?.label} Dashboard
-                    </h2>
-                  </>
-                )}
-              </div>
-              <div className="text-center py-12 text-gray-500">
-                <p className="text-lg mb-2">Area specializzata {selectedArea.toUpperCase()}</p>
-                <p className="text-sm">Moduli e analytics specifici per il dipartimento</p>
-              </div>
+          {selectedArea !== 'overview' && selectedArea !== 'modules' && (
+            <div className="space-y-6">
+              {selectedArea === 'marketing' && (
+                <>
+                  <RBMDeclaro />
+                  <RBMKnowledgeHub />
+                </>
+              )}
+              {selectedArea === 'rd' && (
+                <>
+                  <RBMKnowledgeHub />
+                  <RBMPulse />
+                </>
+              )}
+              {selectedArea === 'production' && (
+                <>
+                  <RBMPulse />
+                  <RBMAutomate />
+                </>
+              )}
+              {selectedArea === 'finance' && (
+                <>
+                  <RBMAutomate />
+                  <div className="bg-white rounded-xl p-8 shadow-sm">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4">Finance Analytics</h2>
+                    <p className="text-gray-600">Dashboard finanziario con forecast cassa e analisi fatture</p>
+                  </div>
+                </>
+              )}
+              {selectedArea === 'ict' && (
+                <>
+                  <RBMVirtualAssistant />
+                  <RBMKnowledgeHub />
+                </>
+              )}
             </div>
           )}
         </main>
