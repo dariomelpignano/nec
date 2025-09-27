@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import UltimateDashboard from './components/Dashboard/UltimateDashboard'
 import ESGDashboard from './components/ESG/ESGDashboard'
-<<<<<<< HEAD
-=======
-// import { getIndustryFromURL, IndustryType } from './config/industries'
->>>>>>> ad7e7afbbf545d34771af300a79ff54e434ed3a8
 
 function App() {
   const [industry, setIndustry] = useState('manufacturing')
@@ -37,8 +33,4 @@ function App() {
   }
 }
 
-<<<<<<< HEAD
 export default App
-=======
-export default App
->>>>>>> ad7e7afbbf545d34771af300a79ff54e434ed3a8
