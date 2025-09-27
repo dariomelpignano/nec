@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIDF - La Piattaforma AI per il Manifatturiero Italiano</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .presentation-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideIn 0.6s forwards;
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide:nth-child(1) { animation-delay: 0.1s; }
+        .slide:nth-child(2) { animation-delay: 0.2s; }
+        .slide:nth-child(3) { animation-delay: 0.3s; }
+        .slide:nth-child(4) { animation-delay: 0.4s; }
+        .slide:nth-child(5) { animation-delay: 0.5s; }
+        .slide:nth-child(6) { animation-delay: 0.6s; }
+        .slide:nth-child(7) { animation-delay: 0.7s; }
+        .slide:nth-child(8) { animation-delay: 0.8s; }
+        .slide:nth-child(9) { animation-delay: 0.9s; }
+        .slide:nth-child(10) { animation-delay: 1.0s; }
+        .slide:nth-child(11) { animation-delay: 1.1s; }
+        .slide:nth-child(12) { animation-delay: 1.2s; }
+        
+        .slide-number {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: #764ba2;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .title-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .title-slide h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .title-slide .subtitle {
+            font-size: 1.5em;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            color: #2d3748;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            font-size: 1.6em;
+            color: #764ba2;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        
+        p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #ffed00 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-card .number {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .description {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .card {
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 45%;
+            padding: 30px;
+            background: #f7fafc;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px white;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -60px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -60px;
+        }
+        
+        .phase-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 12px;
+        }
+        
+        .solution-box {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 2px solid #667eea;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .icon {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .metric {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            margin-top: 30px;
+        }
+        
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .quote {
+            font-size: 1.4em;
+            font-style: italic;
+            color: #667eea;
+            border-left: 4px solid #667eea;
+            padding-left: 30px;
+            margin: 40px 0;
+        }
+        
+        .architecture-diagram {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .layer {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #667eea;
+            margin: 20px auto;
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                margin-left: 0 !important;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: -40px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        
+        <!-- Slide 1: Title -->
+        <div class="slide title-slide">
+            <h1>Neosperience Intelligent Data Fabric</h1>
+            <div class="subtitle">La Data Fabric AI-Driven per la trasformazione digitale delle PMI Manifatturiere</div>
+            <p style="color: white; opacity: 0.9;">Dal backbone operativo all'intelligenza artificiale applicata:<br>un percorso concreto verso la Fabbrica 5.0</p>
+        </div>
+        
+        <!-- Slide 2: Il Contesto di Mercato -->
+        <div class="slide">
+            <span class="slide-number">2</span>
+            <h1>Il Paradosso dell'AI nelle PMI Italiane</h1>
+            
+            <div class="grid">
+                <div class="stat-card">
+                    <div class="number">+58%</div>
+                    <div class="description">Crescita del mercato AI in Italia (2024)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">7%</div>
+                    <div class="description">PMI con progetti AI concreti</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">€1.2B</div>
+                    <div class="description">Valore del mercato AI italiano</div>
+                </div>
+            </div>
+            
+            <h3>Le Barriere all'Adozione</h3>
+            <ul>
+                <li><strong>Infrastrutture digitali immature:</strong> Dati frammentati, sistemi non integrati</li>
+                <li><strong>Carenza di competenze interne:</strong> Difficoltà nel gestire progetti AI complessi</li>
+                <li><strong>Risorse limitate:</strong> Budget e personale insufficienti per grandi trasformazioni</li>
+                <li><strong>Complessità percepita:</strong> L'AI vista come tecnologia inaccessibile</li>
+            </ul>
+            
+            <div class="quote">
+                "Il 58% delle PMI manifesta interesse verso l'AI, ma solo il 15% delle medie imprese ha avviato progetti concreti"
+            </div>
+        </div>
+        
+        <!-- Slide 3: La Visione di Jeanne Ross Attualizzata -->
+        <div class="slide">
+            <span class="slide-number">3</span>
+            <h1>Dall'Operational Backbone all'Era dell'AI</h1>
+            
+            <h2>L'Evoluzione del Concetto di Backbone</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Era Pre-Digitale</h3>
+                    <p>ERP on-premise, processi standardizzati, integrazione manuale</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Era Digitale</h3>
+                    <p>Cloud computing, IoT, mobile, single source of truth</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Era AI (Oggi)</h3>
+                    <p>Intelligenza integrata nei processi, automazione cognitiva, predittività</p>
+                </div>
+            </div>
+            
+            <div class="solution-box">
+                <h3>NIDF: L'Operational Backbone di Nuova Generazione</h3>
+                <p><strong>Non più solo "fare le cose bene"</strong> (processi affidabili, dati puliti)</p>
+                <p><strong>Ma "fare cose nuove e meglio"</strong> (anticipare problemi, ottimizzare in real-time, scalare conoscenza)</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="metric">2.5x</div>
+                    <p>Aziende più agili con backbone maturo</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="metric">44%</div>
+                    <p>Più innovative rispetto ai competitor</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: L'Architettura della Data Fabric -->
+        <div class="slide">
+            <span class="slide-number">4</span>
+            <h1>Data Fabric: Il Cuore di NIDF</h1>
+            
+            <h2>Cos'è la Data Fabric</h2>
+            <p style="font-size: 1.3em; color: #667eea; margin-bottom: 30px;">
+                Uno strato logico e programmabile che unifica accesso, semantica e governance dei dati aziendali
+            </p>
+            
+            <div class="architecture-diagram">
+                <div class="layer">
+                    <h3>Sorgenti Dati</h3>
+                    <p>ERP/CRM • MES/SCADA • PLM/QMS • IIoT/Telemetria • ECM/Email</p>
+                </div>
+                <div class="arrow-down"></div>
+                <div class="layer">
+                    <h3>Ingestion & Streaming</h3>
+                    <p>Connettori • Batch per anagrafiche • Streaming per eventi real-time</p>
+                </div>
+                <div class="arrow-down"></div>
+                <div class="layer">
+                    <h3>Standardizzazione & Semantica</h3>
+                    <p>Modello canonico • Active metadata • Knowledge graph • Glossario aziendale</p>
+                </div>
+                <div class="arrow-down"></div>
+                <div class="layer">
+                    <h3>Governance & Sicurezza</h3>
+                    <p>Policy di accesso • Data masking • Retention • Audit completo</p>
+                </div>
+                <div class="arrow-down"></div>
+                <div class="layer">
+                    <h3>Servizio Dati</h3>
+                    <p>Virtualizzazione/Federazione • API • Feature Store ML • Zero-copy</p>
+                </div>
+            </div>
+            
+            <h3>Cosa NON è la Data Fabric</h3>
+            <ul>
+                <li>❌ Un semplice data lake/lakehouse (solo archiviazione)</li>
+                <li>❌ Un Master Data Management isolato (solo anagrafiche)</li>
+                <li>❌ Un ESB/ETL tradizionale (solo trasporto)</li>
+            </ul>
+        </div>
+        
+        <!-- Slide 5: Il Percorso Evolutivo -->
+        <div class="slide">
+            <span class="slide-number">5</span>
+            <h1>Il Percorso di Trasformazione in 3 Fasi</h1>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="phase-number">1</span>
+                    <h3>Armonizzazione Dati</h3>
+                    <p><strong>Obiettivo:</strong> Costruire il backbone digitale unificato</p>
+                    <ul>
+                        <li>Single source of truth</li>
+                        <li>Processi standardizzati</li>
+                        <li>Dati puliti e integrati</li>
+                    </ul>
+                    <p><strong>Risultato:</strong> Fondamenta solide per l'AI</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="phase-number">2</span>
+                    <h3>Automazione Intelligente</h3>
+                    <p><strong>Obiettivo:</strong> AI nei processi operativi</p>
+                    <ul>
+                        <li>Document processing automatico</li>
+                        <li>Configurazione intelligente</li>
+                        <li>Analytics predittivi</li>
+                    </ul>
+                    <p><strong>Risultato:</strong> Efficienza operativa 10x</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="phase-number">3</span>
+                    <h3>Piattaforma AI-Nativa</h3>
+                    <p><strong>Obiettivo:</strong> Ecosistema intelligente completo</p>
+                    <ul>
+                        <li>AI pervasiva in ogni processo</li>
+                        <li>Knowledge management avanzato</li>
+                        <li>Innovazione continua</li>
+                    </ul>
+                    <p><strong>Risultato:</strong> AI-driven enterprise</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Le Soluzioni Applicative -->
+        <div class="slide">
+            <span class="slide-number">6</span>
+            <h1>L'integrazione fra la NIDF e le soluzioni di Applied AI di Neosperience</h1>
+            
+            <div class="grid">
+                <div class="solution-box">
+                    <div class="icon"></div>
+                    <h3>Neosperience Automate</h3>
+                    <p><strong>Intelligent Document Processing</strong></p>
+                    <ul>
+                        <li>OCR + AI per estrazione dati</li>
+                        <li>Accuratezza >98%</li>
+                        <li>Riduzione tempi fino all'80%</li>
+                        <li>Human-in-the-loop per controllo</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-box">
+                    <div class="icon"></div>
+                    <h3>Neosperience Declaro</h3>
+                    <p><strong>Configuratore AI di Prodotti</strong></p>
+                    <ul>
+                        <li>Regole di business codificate</li>
+                        <li>Validazione real-time</li>
+                        <li>Preventivi automatici</li>
+                        <li>Know-how digitalizzato</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-box">
+                    <div class="icon"></div>
+                    <h3>Neosperience Pulse</h3>
+                    <p><strong>Process Mining & Analytics</strong></p>
+                    <ul>
+                        <li>Visualizzazione processi real-time</li>
+                        <li>Alert predittivi ML</li>
+                        <li>What-if analysis</li>
+                        <li>KPI operativi dinamici</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-box">
+                    <div class="icon"></div>
+                    <h3>Neosperience Bleen</h3>
+                    <p><strong>Enterprise AI Insight Engine</strong></p>
+                    <ul>
+                        <li>Interfaccia conversazionale</li>
+                        <li>RAG su dati aziendali</li>
+                        <li>Ricerca semantica federata</li>
+                        <li>Knowledge management AI</li>
+                    </ul>
+                    <p style="margin-top: 15px;">Recupero del 20-30% del tempo dei knowledge worker (fonte: Cottrill Research)</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 7: L'Ecosistema Aperto -->
+        <div class="slide">
+            <span class="slide-number">7</span>
+            <h1>Costruire l'Ecosistema: Partnership e Innovazione</h1>
+            
+            <h2>Architettura API-First</h2>
+            <div class="card">
+                <p>• Microservizi e API RESTful standard</p>
+                <p>• Integrazioni semplificate per partner</p>
+                <p>• Marketplace di componenti AI</p>
+                <p>• SDK e documentazione developer-friendly</p>
+            </div>
+            
+            <h2>Network di Partner Strategici</h2>
+            
+            <div class="grid">
+                <div class="solution-box">
+                    <h3>System Integrator</h3>
+                    <p>• Implementazioni localizzate</p>
+                    <p>• Expertise verticale di settore</p>
+                    <p>• Supporto on-site</p>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>Technology Provider</h3>
+                    <p>• Vendor IoT/IIoT</p>
+                    <p>• Produttori macchinari 4.0</p>
+                    <p>• Cybersecurity industriale</p>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>Università & Ricerca</h3>
+                    <p>• Algoritmi ML avanzati</p>
+                    <p>• Progetti pilota innovativi</p>
+                    <p>• Competence Center I4.0</p>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>Verticalizzazioni</h3>
+                    <p>• Template machinery</p>
+                    <p>• Soluzioni packaging</p>
+                    <p>• Kit impiantistica</p>
+                </div>
+            </div>
+            
+            <div class="quote">
+                "Un ecosistema aperto moltiplica il valore attraverso le competenze complementari dei partner"
+            </div>
+        </div>
+        
+        <!-- Slide 8: Roadmap di Implementazione -->
+        <div class="slide">
+            <span class="slide-number">8</span>
+            <h1>La Roadmap: Dal Pilot al Digital Enablement Completo</h1>
+            
+            <h2>Approccio Pragmatico in 4 Fasi</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="phase-number">0</span>
+                    <h3>Assessment (1 mese)</h3>
+                    <ul>
+                        <li>Analisi AS-IS sistemi e processi</li>
+                        <li>Identificazione quick wins</li>
+                        <li>Definizione roadmap personalizzata</li>
+                        <li>Business case dettagliato</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="phase-number">1</span>
+                    <h3>Pilot (3 mesi)</h3>
+                    <ul>
+                        <li>Focus su processo critico</li>
+                        <li>Implementazione modulo chiave</li>
+                        <li>Misurazione KPI</li>
+                        <li>Validazione ROI</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="phase-number">2</span>
+                    <h3>Rollout (6 mesi)</h3>
+                    <ul>
+                        <li>Estensione ad altri processi</li>
+                        <li>Integrazione completa sistemi</li>
+                        <li>Training utenti massivo</li>
+                        <li>Ottimizzazione continua</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="phase-number">3</span>
+                    <h3>Scale (Ongoing)</h3>
+                    <ul>
+                        <li>Nuovi use case AI</li>
+                        <li>Espansione ecosystem</li>
+                        <li>Innovazione continua</li>
+                        <li>Best practice sharing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="solution-box">
+                <h3>Fattori Critici di Successo</h3>
+                <p>✓ <strong>Sponsorship C-Level:</strong> Commitment dalla leadership</p>
+                <p>✓ <strong>Change Management:</strong> Accompagnare le persone nel cambiamento</p>
+                <p>✓ <strong>Quick Wins:</strong> Dimostrare valore rapidamente</p>
+                <p>✓ <strong>Approccio Iterativo:</strong> Evolvere passo dopo passo</p>
+            </div>
+        </div>
+        
+        <!-- Slide 9: NIDF vs Bleen - Chiarezza Architetturale -->
+        <div class="slide">
+            <span class="slide-number">9</span>
+            <h1>Architettura: Neosperience Intelligent Data Fabric vs Bleen Insight Engine</h1>
+            
+            <h2>Due Componenti Complementari ma Distinti</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0;">
+                <div class="solution-box">
+                    <h3 style="color: #667eea;">🏗️ Neosperience Intelligent Data Fabric</h3>
+                    <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>Il backbone dei dati aziendali</strong></p>
+                    
+                    <h4>Scopo</h4>
+                    <p>Creare un <strong>backbone dati unico e governato</strong> con accesso, semantica, qualità e sicurezza centralizzati</p>
+                    
+                    <h4>Ambito Tecnico</h4>
+                    <p>• Connettori → Ingestion (batch/streaming)<br>
+                    • Modello canonico + Active metadata<br>
+                    • Virtualizzazione/federazione<br>
+                    • API/SQL/Feature store</p>
+                    
+                    <h4>Dati Gestiti</h4>
+                    <p>• Sistemi di record (ERP/CRM/MES/PLM)<br>
+                    • Viste canoniche, policy by-design<br>
+                    • <strong>Zero-copy preference</strong> (no duplicazioni)</p>
+                    
+                    <h4>Pattern di Accesso</h4>
+                    <p>Espone dati a <strong>tutte le app</strong>: Automate, Declaro, Pulse, Bleen, BI, ML</p>
+                    
+                    <h4>Output</h4>
+                    <p>• Dataset serviti<br>
+                    • Viste semantiche<br>
+                    • KPI governati<br>
+                    • Feature per ML</p>
+                    
+                    <div class="metric" style="margin-top: 20px;">Team Data/Platform</div>
+                    <p>SLA su qualità, latency, sicurezza</p>
+                </div>
+                
+                <div class="solution-box">
+                    <h3 style="color: #764ba2;">💡 Bleen Insight Engine</h3>
+                    <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>L'interfaccia intelligente ai dati</strong></p>
+                    
+                    <h4>Scopo</h4>
+                    <p>Offrire <strong>esperienza conversazionale e insight</strong> tramite ricerca semantica, RAG e Q&A sui dati della fabric</p>
+                    
+                    <h4>Ambito Tecnico</h4>
+                    <p>• Indicizzazione/embedding fonti<br>
+                    • Retrieval semantico<br>
+                    • Generazione con LLM<br>
+                    • Risposte con citazioni e azioni</p>
+                    
+                    <h4>Dati Gestiti</h4>
+                    <p>• Indici/embedding per retrieval<br>
+                    • Cache di lavoro temporanea<br>
+                    • <strong>Non è storage transazionale</strong></p>
+                    
+                    <h4>Pattern di Accesso</h4>
+                    <p><strong>Consuma dati dalla fabric</strong> via API per fornire risposte/insight</p>
+                    
+                    <h4>Output</h4>
+                    <p>• Risposte in linguaggio naturale<br>
+                    • Report sintetici<br>
+                    • Suggerimenti e azioni<br>
+                    • Grafici e tabelle generate</p>
+                    
+                    <div class="metric" style="margin-top: 20px;">Team Knowledge/AI</div>
+                    <p>SLA su pertinenza, latenza interattiva, UX</p>
+                </div>
+            </div>
+            
+            <h2>Governance & Sicurezza Integrata</h2>
+            <div class="architecture-diagram">
+                <div class="layer">
+                    <h3>NIDF: Centro di Governance</h3>
+                    <p>• Accessi, masking, retention, consenso, audit completo<br>
+                    • Qualità e freshness misurate costantemente</p>
+                </div>
+                <div class="arrow-down"></div>
+                <div class="layer">
+                    <h3>Bleen: Eredita le Policy</h3>
+                    <p>• Applica filtri autorizzativi in retrieval/risposta<br>
+                    • Log di utilizzo per compliance e miglioramento</p>
+                </div>
+            </div>
+            
+            <h2>KPI di Successo</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Neosperience Intelligent Data Fabric</h3>
+                    <p>• % fonti coperte<br>
+                    • Riduzione duplicazioni<br>
+                    • Freshness media dati<br>
+                    • Time-to-data per nuovi use case<br>
+                    • # API/asset riusati</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Bleen</h3>
+                    <p>• Precisione/recall risposte<br>
+                    • Tasso citazioni corrette<br>
+                    • Tempo medio risposta<br>
+                    • Adozione (utenti/sessioni)<br>
+                    • Deflection ticket supporto</p>
+                </div>
+            </div>
+            
+            <div class="quote">
+                "NIDF è le fondamenta, Bleen è l'interfaccia intelligente. Insieme creano un sistema dove i dati non solo esistono ma parlano, guidano e generano valore."
+            </div>
+        </div>
+        
+        <!-- Slide 10: Vision Futuro -->
+        <div class="slide">
+            <span class="slide-number">10</span>
+            <h1>La Visione: Il Futuro del Manifatturiero Italiano</h1>
+            
+            <h2>2025-2027: L'Era della Fabbrica Cognitiva</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Supply Chain Autonome</h3>
+                    <p>Catene di fornitura che si auto-ottimizzano basandosi su AI predittiva e demand sensing</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Digital Twin Intelligenti</h3>
+                    <p>Gemelli digitali di prodotti e processi che apprendono e suggeriscono miglioramenti</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Workforce Augmentation</h3>
+                    <p>Ogni operatore potenziato da assistenti AI personalizzati sul proprio ruolo</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Ecosystem Integration</h3>
+                    <p>Filiere interconnesse che condividono intelligenza e best practice</p>
+                </div>
+            </div>
+            
+            <h2>Neosperience: Il Partner per il Futuro</h2>
+            
+            <div class="quote">
+                "Trasformare i dati frammentati in un backbone operativo unificato, abilitando l'AI applicata ai processi aziendali"
+            </div>
+            
+            <h3>Obiettivi della Strategia</h3>
+            <ul>
+                <li><strong>Innovazione Continua:</strong> R&D per mantenere la piattaforma aggiornata</li>
+                <li><strong>Supporto End-to-End:</strong> Dall'assessment all'implementazione completa</li>
+                <li><strong>Ecosistema in Crescita:</strong> Network di partner e soluzioni complementari</li>
+                <li><strong>Focus PMI:</strong> Soluzioni calibrate per le medie imprese manifatturiere</li>
+            </ul>
+        </div>
+        
+        <!-- Slide 12: Call to Action -->
+        <div class="slide title-slide">
+            <span class="slide-number">13</span>
+            <h1>È il Momento di Agire</h1>
+            
+            <div class="subtitle">Il futuro appartiene alle aziende che abbracciano l'AI oggi</div>
+            
+            <div style="background: white; border-radius: 20px; padding: 40px; margin: 40px 0; color: #2d3748;">
+                <h2 style="color: #667eea;">Perché NIDF è la Scelta Giusta</h2>
+                <div class="grid">
+                    <div>
+                        <h3>✓ Piattaforma Completa</h3>
+                        <p>Non solo tool sparsi, ma un ecosistema integrato</p>
+                    </div>
+                    <div>
+                        <h3>✓ Percorso Graduale</h3>
+                        <p>Dall'ordine nei dati all'AI avanzata, un passo alla volta</p>
+                    </div>
+                    <div>
+                        <h3>✓ ROI Garantito</h3>
+                        <p>Risultati misurabili e payback rapido</p>
+                    </div>
+                    <div>
+                        <h3>✓ Made for Italy</h3>
+                        <p>Pensato per le PMI manifatturiere italiane</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 style="color: white;">I Prossimi Passi</h2>
+            <p style="color: white; font-size: 1.3em;">
+                1. Workshop di Assessment gratuito<br>
+                2. Identificazione del primo use case<br>
+                3. Proof of Concept in 30 giorni<br>
+                4. Roadmap personalizzata di trasformazione
+            </p>
+            
+            <button class="cta">Iniziamo il Viaggio Insieme →</button>
+            
+            <p style="color: white; margin-top: 50px; opacity: 0.8;">
+                Contatti: enterprise@neosperience.com | www.neosperience.com/nidf
+            </p>
+        </div>
+        
+    </div>
+</body>
+</html>
