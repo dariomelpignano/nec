@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import UltimateDashboard from './components/Dashboard/UltimateDashboard'
 import ESGDashboard from './components/ESG/ESGDashboard'
+import RBMDashboard from './components/RBM/RBMDashboard'
 
 function App() {
   const [industry, setIndustry] = useState('manufacturing')
@@ -9,8 +10,11 @@ function App() {
     const checkIndustry = () => {
       const urlParams = new URLSearchParams(window.location.search)
       const industryParam = urlParams.get('industry')
+
       if (industryParam === 'esg') {
         setIndustry('esg')
+      } else if (industryParam === 'rbm') {
+        setIndustry('rbm')
       } else {
         setIndustry('manufacturing')
       }
@@ -27,6 +31,8 @@ function App() {
   switch (industry) {
     case 'esg':
       return <ESGDashboard />
+    case 'rbm':
+      return <RBMDashboard />
     case 'manufacturing':
     default:
       return <UltimateDashboard />
