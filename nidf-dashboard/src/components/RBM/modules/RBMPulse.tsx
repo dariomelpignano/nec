@@ -7,7 +7,18 @@ const RBMPulse: React.FC = () => {
   const [liveData, setLiveData] = useState<any[]>([]);
 
   // Digital Twin data per linea produttiva
-  const digitalTwinData = {
+  const digitalTwinData: Record<string, {
+    nome: string;
+    oee: number;
+    disponibilita: number;
+    performance: number;
+    qualita: number;
+    pezziOra: number;
+    target: number;
+    temperatura: number;
+    vibrazioni: number;
+    consumoEnergia: number;
+  }> = {
     linea3: {
       nome: 'Linea Assemblaggio Valvole',
       oee: 84.6,
@@ -19,6 +30,30 @@ const RBMPulse: React.FC = () => {
       temperatura: 22.5,
       vibrazioni: 0.8,
       consumoEnergia: 125
+    },
+    linea4: {
+      nome: 'Linea Produzione Collettori',
+      oee: 78.2,
+      disponibilita: 88,
+      performance: 85,
+      qualita: 96.8,
+      pezziOra: 180,
+      target: 220,
+      temperatura: 24.1,
+      vibrazioni: 1.2,
+      consumoEnergia: 140
+    },
+    linea5: {
+      nome: 'Linea Assemblaggio Componenti',
+      oee: 91.3,
+      disponibilita: 95,
+      performance: 92,
+      qualita: 99.2,
+      pezziOra: 320,
+      target: 350,
+      temperatura: 21.8,
+      vibrazioni: 0.6,
+      consumoEnergia: 95
     }
   };
 
