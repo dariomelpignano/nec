@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import UltimateDashboard from './components/Dashboard/UltimateDashboard'
 import ESGDashboard from './components/ESG/ESGDashboard'
 import RBMDashboard from './components/RBM/RBMDashboard'
+import SebinoDashboard from './components/Sebino/SebinoDashboard'
 
 function App() {
   const [industry, setIndustry] = useState('manufacturing')
@@ -15,6 +16,8 @@ function App() {
         setIndustry('esg')
       } else if (industryParam === 'rbm') {
         setIndustry('rbm')
+      } else if (industryParam === 'sebino') {
+        setIndustry('sebino')
       } else {
         setIndustry('manufacturing')
       }
@@ -33,6 +36,8 @@ function App() {
       return <ESGDashboard />
     case 'rbm':
       return <RBMDashboard />
+    case 'sebino':
+      return <SebinoDashboard />
     case 'manufacturing':
     default:
       return <UltimateDashboard />
