@@ -8,6 +8,6 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 8080,
     strictPort: true,
-    allowedHosts: ['*']
+    allowedHosts: ['nec-production.up.railway.app', 'localhost', '.railway.app']
   }
 })
