@@ -1,0 +1,101 @@
+Macrocategoria,Categoria_specifica,Valori_2024,Fonte_dato,Sistema_esterno
+ESRS 1 — Requisiti Generali,Politica gestione reclami stakeholder,Canale web + sportello; SLA 10 giorni,Automate,
+ESRS 1 — Requisiti Generali,Audit interni su processi ESG (n. e risultati),5 audit; 0 NC maggiori; 6 minori chiuse,Automate,
+ESRS 1 — Requisiti Generali,Perimetro rendicontazione: elenco entità giuridiche,4 entità giuridiche; consolidamento integrale,Bleen,
+ESRS 1 — Requisiti Generali,Perimetro: siti produttivi e indirizzi,"3 siti in IT (BS, BG, RE) + 1 hub logistica",Bleen,
+ESRS 1 — Requisiti Generali,Matrice doppia materialità: elenco temi materiali,"10 temi materiali (clima, energia, acqua, sostanze, rifiuti, prodotto, H&S, DEI, supply chain, etica)",Bleen,
+ESRS 1 — Requisiti Generali,Fornitori critici per fatturato,25 fornitori >80% spesa; top-10 al 62%,SAP,
+ESRS 2 — Informative Generali,Presidio privacy dati non finanziari,DPIA completata; minimizzazione dataset,Automate,
+ESRS 2 — Informative Generali,Assicurazione esterna/limited assurance (stato),Limited assurance E1/E2/E3/S1 (positivo),Automate,
+ESRS 2 — Informative Generali,Coinvolgimento stakeholder (numero incontri),18 incontri; 4 survey,Automate,
+ESRS 2 — Informative Generali,Processo di gestione rischi/opportunità ESG,Matrice P×I; aggiornamento semestrale,Bleen,
+ESRS 2 — Informative Generali,Governance ESG: composizione e competenze del CdA,CdA 7 membri (2 indipendenti); 1 esperto ESG,Bleen,
+ESRS 2 — Informative Generali,Digitalizzazione processi ESG (strumenti),"Automate, Bleen, Pulse integrati",Bleen,
+ESRS 2 — Informative Generali,"CapEx green (€, % su totale)",€1.900.000 (12%),SAP,
+ESRS 2 — Informative Generali,"Formazione CdA su sostenibilità (ore, %)",24 ore; copertura 100%,SAP,
+ESRS 2 — Informative Generali,"OpEx ESG (€, % su totale)","€1.150.000 (4,3%)",SAP,
+ESRS E1 — Cambiamento climatico,Target riduzione Scope 1-2 al 2030 (%),36.8% vs 2020,Bleen,
+ESRS E1 — Cambiamento climatico,Target riduzione Scope 3 al 2035 (%),21.5% vs 2020,Bleen,
+ESRS E1 — Cambiamento climatico,"Stress test scenario 1,5–3°C (sintesi risultati)",Rischio medio verniciatura; mitigazioni 2025–2027,Bleen,
+ESRS E1 — Cambiamento climatico,Intensità energetica (kWh/pezzo) — Lavorazioni meccaniche,39.8 kWh/pezzo,Pulse,
+ESRS E1 — Cambiamento climatico,Consumo gas naturale (MWh) — Verniciatura,1.211 MWh,Pulse,
+ESRS E1 — Cambiamento climatico,Consumo gas naturale (MWh) — Assemblaggio/Collaudo,366 MWh,Pulse,
+ESRS E1 — Cambiamento climatico,S3 A2 Trasporti inbound (tCO2e),1.445 tCO2e,Sistemi esterni,Spedizionieri (es. DHL Freight)
+ESRS E1 — Cambiamento climatico,S3 B1 Uso del prodotto (tCO2e),1.429 tCO2e (valvole attuate),Sistemi esterni,
+ESRS E1 — Cambiamento climatico,S3 A1 Materie prime: acciaio/ghisa (tCO2e),17.027 tCO2e (copertura 88%),Sistemi esterni,
+ESRS E2 — Inquinamento,Eventi di superamento limiti (n.) — Fonderia,2 eventi; chiusi,Automate,
+ESRS E2 — Inquinamento,Sostanze SVHC presenti (n.) — Fonderia,3 sostanze; piani di sostituzione attivi,Automate,
+ESRS E2 — Inquinamento,Sostanze SVHC presenti (n.) — Lavorazioni meccaniche,3 sostanze; piani di sostituzione attivi,Automate,
+ESRS E2 — Inquinamento,Fanghi/emulsioni prodotti (t/anno) — Lavorazioni meccaniche,58 t/anno,MES,
+ESRS E2 — Inquinamento,Fanghi/emulsioni prodotti (t/anno) — Assemblaggio/Collaudo,58 t/anno,MES,
+ESRS E2 — Inquinamento,Fanghi/emulsioni prodotti (t/anno) — Fonderia,54 t/anno,MES,
+ESRS E2 — Inquinamento,VOC da verniciatura (t/anno) — Lavorazioni meccaniche,13 t/anno; carbone attivo,Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS E2 — Inquinamento,Scarichi: COD (mg/L) — Assemblaggio/Collaudo,Media 110 mg/L; picco 150 mg/L; OK,Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS E2 — Inquinamento,SOx (mg/Nm3 o t/anno) — Lavorazioni meccaniche,Media 20 mg/Nm³; conformità OK,Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS E3 — Risorse idriche e marine,Prelievi idrici totali (m³) — Fonderia,31.652 m³,Pulse,
+ESRS E3 — Risorse idriche e marine,Consumo idrico (m³) — Fonderia,17.716 m³,Pulse,
+ESRS E3 — Risorse idriche e marine,Consumo idrico (m³) — Lavorazioni meccaniche,9.201 m³,Pulse,
+ESRS E3 — Risorse idriche e marine,Scarichi totali (m³) — Fonderia,9.020 m³,Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS E3 — Risorse idriche e marine,Qualità scarichi: pH — Fonderia,"Media 7,3; range 6,9–7,8",Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS E3 — Risorse idriche e marine,Qualità scarichi: pH — Lavorazioni meccaniche,"Media 7,3; range 6,9–7,8",Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS E4 — Biodiversità ed ecosistemi,"Azioni di mitigazione (n., €)",7 azioni; €215.300,SAP,
+ESRS E4 — Biodiversità ed ecosistemi,Pressioni: rumore (dB) in confine,Media 52 dB al confine; nessun superamento,Sistemi esterni,
+ESRS E4 — Biodiversità ed ecosistemi,Fornitori materie prime in aree ad alto rischio biodiversità (n.),5 fornitori; due diligence completata,Sistemi esterni,
+ESRS E4 — Biodiversità ed ecosistemi,Impianti entro 5 km da aree protette (n.),0 entro aree protette; 1 entro 8 km (SIC),Sistemi esterni,
+ESRS E5 — Uso risorse ed economia circolare,Trucioli tornitura fresatura (kg/pezzo),0.57 kg/pezzo,MES,
+ESRS E5 — Uso risorse ed economia circolare,Recupero interno rottami (% su totale),76.2%,MES,
+ESRS E5 — Uso risorse ed economia circolare,Sfridi di taglio/lavorazione (kg/pezzo),1.43 kg/pezzo,MES,
+ESRS E5 — Uso risorse ed economia circolare,Packaging riciclato (%),64.0%,SAP,
+ESRS E5 — Uso risorse ed economia circolare,Programmi take-back (t recuperate),78 t,SAP,
+ESRS E5 — Uso risorse ed economia circolare,MTBF in esercizio (ore),50.361 ore,SAP,
+ESRS E5 — Uso risorse ed economia circolare,Contenuto riciclato acciaio/ghisa (%),52.6%,Sistemi esterni,
+ESRS E5 — Uso risorse ed economia circolare,Rifiuti pericolosi (t) e % avviati a recupero,176 t; 75.0% recupero,Sistemi esterni,Gestore rifiuti autorizzato
+ESRS E5 — Uso risorse ed economia circolare,Rifiuti non pericolosi (t) e % avviati a recupero,1.347 t; 93.4% recupero,Sistemi esterni,Gestore rifiuti autorizzato
+ESRS G1 — Condotta d’impresa,Esiti indagini whistleblowing (n. chiuse),3 chiuse,Automate,
+ESRS G1 — Condotta d’impresa,Casi antitrust/competizione (n.),1,Automate,
+ESRS G1 — Condotta d’impresa,"Sanzioni/multe per non conformità (n., €)",1; €3.496,Automate,
+ESRS G1 — Condotta d’impresa,Politiche/regolamenti aziendali aggiornati (%),97.5%,Bleen,
+ESRS G1 — Condotta d’impresa,Formazione anticorruzione: copertura (%),92.7%,SAP,
+ESRS G1 — Condotta d’impresa,Screening sanzioni/blacklist terze parti (n.),1086 controparti; 0 match positivi,Sistemi esterni,
+ESRS G1 — Condotta d’impresa,Data breach (n.),1,Sistemi esterni,SOC / CERT
+ESRS S1 — Forza lavoro propria,TRIR — Fonderia,2.5,MES,
+ESRS S1 — Forza lavoro propria,Near-miss (n.) — Magazzino,17,MES,
+ESRS S1 — Forza lavoro propria,TRIR — Magazzino,1.7,MES,
+ESRS S1 — Forza lavoro propria,% tempo indeterminato — Collaudo,91.5%,SAP,
+ESRS S1 — Forza lavoro propria,% tempo indeterminato — Verniciatura,96.8%,SAP,
+ESRS S1 — Forza lavoro propria,Turnover (%) — Officina meccanica,4.3%,SAP,
+ESRS S1 — Forza lavoro propria,Esposizione a polveri/sostanze (n.) — Collaudo,7 lavoratori,Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS S1 — Forza lavoro propria,Esposizione a polveri/sostanze (n.) — Magazzino,15 lavoratori,Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS S1 — Forza lavoro propria,Esposizione a rumore (n. lavoratori > 85 dB) — Fonderia,8 lavoratori,Sistemi esterni,
+ESRS S2 — Lavoratori nella catena del valore,Non conformità audit (n.),24,Automate,
+ESRS S2 — Lavoratori nella catena del valore,Formazione HSE richiesta ai fornitori (n. partecipanti),148 partecipanti,Automate,
+ESRS S2 — Lavoratori nella catena del valore,Tempo medio chiusura NC (giorni),44 giorni,Automate,
+ESRS S3 — Comunità impattate,Tempo medio risposta ai reclami (giorni),10 giorni,Automate,
+ESRS S3 — Comunità impattate,Consultazioni pubbliche/riunioni (n.),3,Automate,
+ESRS S3 — Comunità impattate,Reclami comunità (n.),0,Automate,
+ESRS S3 — Comunità impattate,Investimenti comunitari (€),€174.963,SAP,
+ESRS S4 — Consumatori e utenti finali,Richiami di prodotto (n.),1,Automate,
+ESRS S4 — Consumatori e utenti finali,Incidenti di sicurezza prodotto (n.),2,Automate,
+ESRS S4 — Consumatori e utenti finali,Manuali e schede aggiornate (%),99.7%,Bleen,
+ESRS S4 — Consumatori e utenti finali,MTTR gestione reclami (giorni),6 giorni,SAP,
+ESRS S4 — Consumatori e utenti finali,Reclami clienti (n.),52,SAP,
+ESRS S4 — Consumatori e utenti finali,Conformità PED/ATEX (tasso %),99.1%,Sistemi esterni,Ente notificato (TÜV/DNV)
+ESRS E2 — Inquinamento,"Incidenti/sversamenti (n., volume) — Fonderia",3 minori; 0 permanenti,Automate,
+ESRS E2 — Inquinamento,Sostanze SVHC presenti (n.) — Fonderia,3 sostanze; piani di sostituzione attivi,Automate,
+ESRS S1 — Forza lavoro propria,Ore formazione pro capite — Officina meccanica,41.8 ore/FTE,SAP,
+ESRS E3 — Risorse idriche e marine,Ricircolo/riutilizzo acqua (%) — Assemblaggio/Collaudo,39.9%,Pulse,
+ESRS E3 — Risorse idriche e marine,Intensità idrica (m³/pezzo) — Lavorazioni meccaniche,0.22 m³/pezzo,Pulse,
+ESRS E2 — Inquinamento,Sostanze SVHC presenti (n.) — Assemblaggio/Collaudo,3 sostanze; piani di sostituzione attivi,Automate,
+ESRS S1 — Forza lavoro propria,Gender balance (% donne) — Assemblaggio,28.0%,SAP,
+ESRS S1 — Forza lavoro propria,Gender pay gap (%) — Uffici,2.8%,SAP,
+ESRS G1 — Condotta d’impresa,Conflitti di interesse dichiarati (n.),2,Automate,
+ESRS S2 — Lavoratori nella catena del valore,Tempo medio chiusura NC (giorni),44 giorni,Automate,
+ESRS E3 — Risorse idriche e marine,Consumo idrico (m³) — Verniciatura,9.043 m³,Pulse,
+ESRS S1 — Forza lavoro propria,Near-miss (n.) — Magazzino,17,MES,
+ESRS S1 — Forza lavoro propria,Gender pay gap (%) — Magazzino,6.1%,SAP,
+ESRS S3 — Comunità impattate,Investimenti comunitari (€),€174.963,SAP,
+ESRS E3 — Risorse idriche e marine,Qualità scarichi: pH — Fonderia,"Media 7,3; range 6,9–7,8",Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS S4 — Consumatori e utenti finali,Conformità PED/ATEX (tasso %),99.1%,Sistemi esterni,Ente notificato (TÜV/DNV)
+ESRS E2 — Inquinamento,VOC da verniciatura (t/anno) — Lavorazioni meccaniche,13 t/anno; carbone attivo,Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS E3 — Risorse idriche e marine,Scarichi totali (m³) — Assemblaggio/Collaudo,12.437 m³,Sistemi esterni,ARPA / Laboratorio accreditato
+ESRS E3 — Risorse idriche e marine,Scarichi totali (m³) — Fonderia,9.020 m³,Sistemi esterni,ARPA / Laboratorio accreditato
